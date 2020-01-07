@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { LOGIN_FAILURE_PAGE } from '../utils/constants';
+class Secret extends Component {
+	redirect = () => {
+		this.props.history.push(LOGIN_FAILURE_PAGE);
+	};
 
-export default class Secret extends Component {
 	render() {
 		return (
 			<div>
 				Secret
 				<br />
 				<br />
-				<button onClick={this.props.auth.logout}>Log out</button>
+				<button onClick={() => this.props.auth.logout(this.redirect)}>Log out</button>
 				<br />
 				<br />
-				<a href="/">Back to Main</a>
+				<Link to={LOGIN_FAILURE_PAGE}>Back to Main</Link>
 			</div>
 		);
 	}
 }
+
+export default withRouter(Secret);

@@ -5,23 +5,10 @@ import Main from './components/Main';
 import Secret from './components/Secret';
 import NotFound from './components/NotFound';
 import Callback from './components/Callback';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App(props) {
-	let MainComponent = '';
-	switch (props.location) {
-		case '':
-			MainComponent = <Main {...props} />;
-			break;
-		case 'callback':
-			MainComponent = <Callback />;
-			break;
-		case 'secret':
-			MainComponent = props.auth.isAuthenticated() ? <Secret {...props} /> : <NotFound />;
-			break;
-		default:
-			MainComponent = <NotFound />;
-	}
-
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -29,7 +16,14 @@ function App(props) {
 				<p>
 					Hola <code>{props.name}</code>.
 				</p>
-				{MainComponent}
+				<Router>
+					<Switch>
+						<Route path="/" exact render={() => <Main {...props} />} />
+						<Route path="/callback" component={Callback} />
+						<ProtectedRoute path="/secret" component={() => <Secret {...props} />} {...props} />
+						<Route path="*" component={NotFound} />
+					</Switch>
+				</Router>
 			</header>
 		</div>
 	);

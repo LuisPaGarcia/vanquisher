@@ -1,6 +1,5 @@
 import auth0 from 'auth0-js';
-const LOGIN_SUCCESS_PAGE = '/secret';
-const LOGIN_FAILURE_PAGE = '/';
+import { LOGIN_FAILURE_PAGE, LOGIN_SUCCESS_PAGE } from '../utils/constants';
 
 export default class Auth {
 	auth0 = new auth0.WebAuth({
@@ -15,11 +14,12 @@ export default class Auth {
 	login = () => {
 		this.auth0.authorize();
 	};
+
 	/* eslint no-restricted-globals:0 */
-	handleAuthentication = () => {
+	handleAuthentication = cb => {
 		this.auth0.parseHash((err, authResults) => {
 			if (err) {
-				location.pathname = LOGIN_FAILURE_PAGE;
+				cb(LOGIN_FAILURE_PAGE);
 				console.log(err);
 			}
 
@@ -29,7 +29,7 @@ export default class Auth {
 				localStorage.setItem('id_token', authResults.idToken);
 				localStorage.setItem('expires_at', expiresAt);
 				location.hash = '';
-				location.pathname = LOGIN_SUCCESS_PAGE;
+				cb(LOGIN_SUCCESS_PAGE);
 			}
 		});
 	};
@@ -39,10 +39,10 @@ export default class Auth {
 		return new Date().getTime() < expiresAt;
 	};
 
-	logout = () => {
+	logout = cb => {
 		localStorage.removeItem('access_token');
 		localStorage.removeItem('id_token');
 		localStorage.removeItem('expires_at');
-		location.pathname = LOGIN_FAILURE_PAGE;
+		cb();
 	};
 }
