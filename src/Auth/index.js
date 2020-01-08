@@ -35,8 +35,12 @@ export default class Auth {
 	};
 
 	isAuthenticated = () => {
+		let isAuth =
+			localStorage.getItem('access_token') &&
+			localStorage.getItem('id_token') &&
+			localStorage.getItem('expires_at');
 		let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-		return new Date().getTime() < expiresAt;
+		return new Date().getTime() < expiresAt && isAuth;
 	};
 
 	logout = cb => {
