@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { LOGIN_SUCCESS_PAGE } from '../utils/constants';
+import SignUpForm from './Chakra';
 export default class Main extends Component {
 	redirect = () => {
 		this.props.history.push(LOGIN_SUCCESS_PAGE);
@@ -11,6 +12,7 @@ export default class Main extends Component {
 				Main - Hello, {this.props.name}
 				<hr />
 				<br />
+				<SignUpForm />
 				<br />
 				{this.props.auth.isAuthenticated() ? (
 					<span>

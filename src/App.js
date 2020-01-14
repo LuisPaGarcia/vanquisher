@@ -8,6 +8,8 @@ import Callback from './components/Callback';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 
+// Use at the root of your app
+
 function App(props) {
 	return (
 		<div className="App">
