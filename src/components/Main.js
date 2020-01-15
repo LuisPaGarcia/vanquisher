@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { LOGIN_SUCCESS_PAGE } from '../utils/constants';
 import { Button } from '@chakra-ui/core';
+import { SpanExample } from './SpanExample';
 
 export default class Main extends Component {
 	redirect = () => {
@@ -10,7 +11,7 @@ export default class Main extends Component {
 	render() {
 		return (
 			<div>
-				Main - Hello, {this.props.name}
+				Main - Hello, {this.props.name} <SpanExample />
 				<hr />
 				{this.props.auth.isAuthenticated() ? (
 					<span>

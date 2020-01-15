@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import Main from './components/Main';
 import Secret from './components/Secret';
 import NotFound from './components/NotFound';
@@ -13,20 +12,14 @@ import ProtectedRoute from './components/ProtectedRoute';
 function App(props) {
 	return (
 		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Hola <code>{props.name}</code>.
-				</p>
-				<Router>
-					<Switch>
-						<Route path="/" exact render={() => <Main {...props} />} />
-						<Route path="/callback" component={Callback} />
-						<ProtectedRoute path="/secret" component={() => <Secret {...props} />} {...props} />
-						<Route path="*" component={NotFound} />
-					</Switch>
-				</Router>
-			</header>
+			<Router>
+				<Switch>
+					<Route path="/" exact render={() => <Main {...props} />} />
+					<Route path="/callback" component={Callback} />
+					<ProtectedRoute path="/secret" component={() => <Secret {...props} />} {...props} />
+					<Route path="*" component={NotFound} />
+				</Switch>
+			</Router>
 		</div>
 	);
 }

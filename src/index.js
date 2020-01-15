@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Auth from './Auth';
@@ -8,27 +8,18 @@ import { ThemeProvider } from '@chakra-ui/core';
 
 const auth = new Auth();
 
-let state = {};
-
-window.setState = changes => {
-	state = Object.assign({}, state, changes);
-	ReactDOM.render(
-		<ThemeProvider>
-			<App {...state} />
-		</ThemeProvider>,
-		document.getElementById('root')
-	);
-};
-
-/* eslint no-restricted-globals:0 */
-
 let initialState = {
 	name: 'Luispa',
-	location: location.pathname.replace(/^\/?|\/$/g, ''),
+	location: document.location.pathname.replace(/^\/?|\/$/g, ''),
 	auth
 };
 
-window.setState(initialState);
+ReactDOM.render(
+	<ThemeProvider>
+		<App {...initialState} />
+	</ThemeProvider>,
+	document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
