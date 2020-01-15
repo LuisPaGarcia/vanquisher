@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { LOGIN_SUCCESS_PAGE } from '../utils/constants';
-import SignUpForm from './Chakra';
+import { Button } from '@chakra-ui/core';
+
 export default class Main extends Component {
 	redirect = () => {
 		this.props.history.push(LOGIN_SUCCESS_PAGE);
@@ -11,9 +12,6 @@ export default class Main extends Component {
 			<div>
 				Main - Hello, {this.props.name}
 				<hr />
-				<br />
-				<SignUpForm />
-				<br />
 				{this.props.auth.isAuthenticated() ? (
 					<span>
 						Go to <Link to={LOGIN_SUCCESS_PAGE}>Secret</Link>
@@ -22,7 +20,10 @@ export default class Main extends Component {
 					<div>
 						Please log first
 						<br />
-						<button onClick={() => this.props.auth.login(this.redirect)}>Login</button>
+						<br />
+						<Button variantColor="teal" border="none" onClick={() => this.props.auth.login(this.redirect)}>
+							Login
+						</Button>
 					</div>
 				)}
 			</div>
