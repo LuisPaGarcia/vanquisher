@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Context } from '../stores/store';
 
-function SpanExample() {
+function AppTitle() {
 	const { store } = useContext(Context);
-	return <span>{store}</span>;
+	return <h1>{store}</h1>;
 }
 
-export { SpanExample };
+export { AppTitle };

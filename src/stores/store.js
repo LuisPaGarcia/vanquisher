@@ -1,6 +1,6 @@
 import React from 'react';
 const store = {
-	store: 'hi!'
+	appTitle: 'Vanquish Educational'
 };
 
 const Context = React.createContext(store);
