@@ -1,9 +1,15 @@
 import React from 'react';
+import Auth from '../Auth';
+const auth = new Auth();
+
 const store = {
-	appTitle: 'Vanquish Educational'
+	name: 'Luispa',
+	appTitle: 'Vanquish Educational',
+	location: document.location.pathname.replace(/^\/?|\/$/g, ''),
+	auth
 };
 
-const Context = React.createContext(store);
+const Context = React.createContext();
 
 let ContextOne = React.createContext();
 
@@ -39,7 +45,7 @@ function ContextOneProvider(props) {
 let ContextOneConsumer = ContextOne.Consumer;
 
 // [C]
-export { ContextOne, ContextOneProvider, ContextOneConsumer, Context };
+export { ContextOne, ContextOneProvider, ContextOneConsumer, Context, store };
 
 // https://dev.to/oieduardorabelo/react-hooks-how-to-create-and-update-contextprovider-1f68
 // We have some new faces here, eh? 90% of the code is quite familiar, let's examine items [A], [B], [C].

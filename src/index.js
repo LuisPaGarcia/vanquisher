@@ -3,21 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Auth from './Auth';
-import { ThemeProvider } from '@chakra-ui/core';
-
-const auth = new Auth();
-
-let initialState = {
-	name: 'Luispa',
-	location: document.location.pathname.replace(/^\/?|\/$/g, ''),
-	auth
-};
+import { Context, store } from './stores/store';
 
 ReactDOM.render(
-	<ThemeProvider>
-		<App {...initialState} />
-	</ThemeProvider>,
+	<Context.Provider value={store}>
+		<App />
+	</Context.Provider>,
 	document.getElementById('root')
 );
 
