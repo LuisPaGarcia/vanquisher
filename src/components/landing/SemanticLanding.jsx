@@ -11,7 +11,7 @@ import {
     Menu,
     Responsive,
     Segment,
-    Visibility
+    Visibility,
 } from 'semantic-ui-react'
 import { LOGIN_SUCCESS_PAGE } from '../../utils/constants'
 import { Context } from '../../stores/store'
@@ -43,8 +43,6 @@ function DesktopContainer(props) {
         props.history.push(LOGIN_SUCCESS_PAGE)
     }
 
-    const { children } = props
-
     return (
         <Responsive
             getWidth={getWidth}
@@ -69,12 +67,6 @@ function DesktopContainer(props) {
                         size="large"
                     >
                         <Container>
-                            <Menu.Item as="a" active>
-                                Home
-                            </Menu.Item>
-                            <Menu.Item as="a">Work</Menu.Item>
-                            <Menu.Item as="a">Company</Menu.Item>
-                            <Menu.Item as="a">Careers</Menu.Item>
                             <Menu.Item position="right">
                                 {context.auth.isAuthenticated() ? (
                                     <Button
@@ -109,14 +101,12 @@ function DesktopContainer(props) {
                     <HomepageHeading />
                 </Segment>
             </Visibility>
-
-            {children}
         </Responsive>
     )
 }
 
 DesktopContainer.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
 }
 
 const ResponsiveContainer = ({ children }) => (
@@ -127,7 +117,7 @@ const ResponsiveContainer = ({ children }) => (
 )
 
 ResponsiveContainer.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
 }
 
 const HomepageLayout = () => (

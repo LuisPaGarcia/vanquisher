@@ -1,9 +1,17 @@
 import PropTypes from 'prop-types'
-import React, { useState, useContext } from "react"
-import { Responsive, Sidebar, Menu, Segment, Container, Button, Icon } from "semantic-ui-react"
-import { Context } from "../../stores/store"
-import { LOGIN_SUCCESS_PAGE, LOGIN_FAILURE_PAGE } from "../../utils/constants"
-import HomepageHeading from "./HomepageHeading"
+import React, { useState, useContext } from 'react'
+import {
+    Responsive,
+    Sidebar,
+    Menu,
+    Segment,
+    Container,
+    Button,
+    Icon,
+} from 'semantic-ui-react'
+import { Context } from '../../stores/store'
+import { LOGIN_SUCCESS_PAGE, LOGIN_FAILURE_PAGE } from '../../utils/constants'
+import HomepageHeading from './HomepageHeading'
 import { withRouter } from 'react-router-dom'
 const getWidth = () => {
     const isSSR = typeof window === 'undefined'
@@ -25,8 +33,6 @@ function MobileContainer(props) {
     const cbLogOut = () => {
         props.history.push(LOGIN_FAILURE_PAGE)
     }
-
-    const { children } = props
 
     return (
         <Responsive
@@ -110,15 +116,13 @@ function MobileContainer(props) {
                     </Container>
                     <HomepageHeading mobile />
                 </Segment>
-
-                {children}
             </Sidebar.Pusher>
         </Responsive>
     )
 }
 
 MobileContainer.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
 }
 
-export default withRouter( MobileContainer)
+export default withRouter(MobileContainer)
