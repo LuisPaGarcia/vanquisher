@@ -1,53 +1,59 @@
 {
-	"name": "vanquisher",
-	"version": "0.1.0",
-	"private": true,
-	"dependencies": {
-		"@chakra-ui/core": "^0.8.0",
-		"@emotion/core": "^10.0.28",
-		"@emotion/styled": "^10.0.27",
-		"@testing-library/jest-dom": "^5.7.0",
-		"@testing-library/react": "^10.0.4",
-		"@testing-library/user-event": "^10.3.1",
-		"auth0-js": "^9.13.2",
-		"emotion-theming": "^10.0.27",
-		"node-sass": "^4.14.1",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"react-router-dom": "^5.2.0",
-		"react-scripts": "^3.4.3",
-		"semantic-ui-react": "^0.88.2"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
-	"bugs": {
-		"url": "https://github.com/luispagarcia/vanquisher/issues"
-	},
-	"author": {
-		"name": "LuisPa Garcia",
-		"email": "hola@luispa.im"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "^11.0.0",
-		"@commitlint/config-conventional": "^11.0.0"
-	}
+    "name": "vanquisher",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@chakra-ui/core": "^0.8.0",
+        "@emotion/core": "^10.0.28",
+        "@emotion/styled": "^10.0.27",
+        "@testing-library/jest-dom": "^5.7.0",
+        "@testing-library/react": "^10.0.4",
+        "@testing-library/user-event": "^10.3.1",
+        "auth0-js": "^9.13.2",
+        "emotion-theming": "^10.0.27",
+        "node-sass": "^4.14.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "^3.4.3",
+        "semantic-ui-react": "^0.88.2"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "bugs": {
+        "url": "https://github.com/luispagarcia/vanquisher/issues"
+    },
+    "author": {
+        "name": "LuisPa Garcia",
+        "email": "hola@luispa.im"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^11.0.0",
+        "@commitlint/config-conventional": "^11.0.0"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+            "pre-commit": "lint-staged"
+        }
+    }
 }
