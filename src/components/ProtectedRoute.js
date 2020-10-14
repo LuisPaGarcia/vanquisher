@@ -4,12 +4,12 @@ import { NOT_FOUND_PAGE } from '../utils/constants';
 import { Context } from '../stores/store';
 
 function ProtectedRoute(props) {
-	const context = useContext(Context);
-	return context.auth.isAuthenticated() ? (
-		<Route path={props.path} component={props.component} />
-	) : (
-		<Redirect to={NOT_FOUND_PAGE} />
-	);
+  const context = useContext(Context);
+  return context.auth.isAuthenticated() ? (
+    <Route path={props.path} component={props.component} />
+  ) : (
+    <Redirect to={NOT_FOUND_PAGE} />
+  );
 }
 
 export default ProtectedRoute;
