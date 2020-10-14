@@ -1,51 +1,53 @@
-import React from 'react';
-import Auth from '../Auth';
-const auth = new Auth();
+import React from 'react'
+import Auth from '../Auth'
+const auth = new Auth()
 
 const store = {
-	name: 'Luispa',
-	appTitle: 'Vanquish Educational',
-	location: document.location.pathname.replace(/^\/?|\/$/g, ''),
-	auth
-};
-
-const Context = React.createContext();
-
-let ContextOne = React.createContext();
-
-let initialState = {
-	count: 10,
-	currentColor: '#bada55'
-};
-
-let reducer = (state, action) => {
-	switch (action.type) {
-		case 'reset':
-			return initialState;
-		case 'increment':
-			return { ...state, count: state.count + 1 };
-		case 'decrement':
-			return { ...state, count: state.count - 1 };
-		case 'set-color':
-			return { ...state, currentColor: action.payload };
-		default:
-			return { ...state };
-	}
-};
-
-function ContextOneProvider(props) {
-	// [A]
-	let [ state, dispatch ] = React.useReducer(reducer, initialState);
-	let value = { state, dispatch };
-
-	// [B]
-	return <ContextOne.Provider value={value}>{props.children}</ContextOne.Provider>;
+  name: 'Luispa',
+  appTitle: 'Vanquish Educational',
+  location: document.location.pathname.replace(/^\/?|\/$/g, ''),
+  auth,
 }
 
-let ContextOneConsumer = ContextOne.Consumer;
+const Context = React.createContext()
+
+let ContextOne = React.createContext()
+
+let initialState = {
+  count: 10,
+  currentColor: '#bada55',
+}
+
+let reducer = (state, action) => {
+  switch (action.type) {
+    case 'reset':
+      return initialState
+    case 'increment':
+      return { ...state, count: state.count + 1 }
+    case 'decrement':
+      return { ...state, count: state.count - 1 }
+    case 'set-color':
+      return { ...state, currentColor: action.payload }
+    default:
+      return { ...state }
+  }
+}
+
+function ContextOneProvider(props) {
+  // [A]
+  let [state, dispatch] = React.useReducer(reducer, initialState)
+  let value = { state, dispatch }
+
+  // [B]
+  return (
+    <ContextOne.Provider value={value}>{props.children}</ContextOne.Provider>
+  )
+}
+
+let ContextOneConsumer = ContextOne.Consumer
 
 // [C]
-export { ContextOne, ContextOneProvider, ContextOneConsumer, Context, store };
+export { ContextOne, ContextOneProvider, ContextOneConsumer, Context, store }
 
 // https://dev.to/oieduardorabelo/react-hooks-how-to-create-and-update-contextprovider-1f68
 // We have some new faces here, eh? 90% of the code is quite familiar, let's examine items [A], [B], [C].
