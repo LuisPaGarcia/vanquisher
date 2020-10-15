@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { LOGIN_SUCCESS_PAGE } from '../../utils/constants'
 import { Context } from '../../stores/store'
+import Wrapper from '../Wrapper'
 
 function Landing(props) {
   const context = useContext(Context)
@@ -38,4 +39,4 @@ function Landing(props) {
     </>
   )
 }
-export default Landing
+export default Wrapper(Landing)
