@@ -1,8 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { LOGIN_FAILURE_PAGE } from '../../utils/constants';
+import React from 'react'
+import Wrapper from '../Wrapper'
+import { Link } from 'react-router-dom'
+import { LOGIN_FAILURE_PAGE } from '../../utils/constants'
 
-export default function Dashboard(props) {
+function Dashboard(props) {
   return (
     <>
       <h1>Dashboard!</h1>
@@ -12,5 +13,7 @@ export default function Dashboard(props) {
         </button>
       </Link>
     </>
-  );
+  )
 }
+
+export default Wrapper(Dashboard)
