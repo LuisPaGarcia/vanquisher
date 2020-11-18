@@ -4,7 +4,7 @@ const auth = new Auth()
 
 const store = {
   name: 'Luispa',
-  appTitle: 'Vanquish Educational',
+  appTitle: 'Vanquish',
   location: document.location.pathname.replace(/^\/?|\/$/g, ''),
   auth,
 }

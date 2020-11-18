@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.scss'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import { Context, store } from './app/stores/store'
+import { Context, store } from './app/stores'
 
 ReactDOM.render(
   <Context.Provider value={store}>
