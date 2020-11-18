@@ -1,11 +1,11 @@
-import './assets/main.css';
-import React from 'react';
-import Landing from './app/landing/';
-import Dashboard from './app/dashboard';
-import NotFound from './components/NotFound';
-import Callback from './components/Callback';
-import ProtectedRoute from './components/ProtectedRoute';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './assets/main.css'
+import React from 'react'
+import Landing from './app/landing/'
+import Dashboard from './app/dashboard'
+import NotFound from './app/NotFound'
+import Callback from './app/Callback'
+import ProtectedRoute from './app/ProtectedRoute'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App(props) {
   return (
@@ -20,7 +20,7 @@ function App(props) {
         <Route path="*" component={NotFound} />
       </Switch>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

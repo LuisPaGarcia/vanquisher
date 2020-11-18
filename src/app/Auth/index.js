@@ -1,5 +1,5 @@
 import auth0 from 'auth0-js'
-import { LOGIN_FAILURE_PAGE, LOGIN_SUCCESS_PAGE } from '../utils/constants'
+import { LOGIN_FAILURE_PAGE, LOGIN_SUCCESS_PAGE } from '../../utils/constants'
 
 export default class Auth {
   constructor() {
