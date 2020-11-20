@@ -1,10 +1,10 @@
 import './assets/main.css'
 import React from 'react'
-import Landing from './app/landing/'
-import Dashboard from './app/dashboard'
-import NotFound from './app/NotFound'
-import Callback from './app/Callback'
-import ProtectedRoute from './app/ProtectedRoute'
+import Landing from './app/components/landing/'
+import Dashboard from './app/components/dashboard'
+import NotFound from './app/components/NotFound'
+import Callback from './app/components/Callback'
+import ProtectedRoute from './app/components/ProtectedRoute'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App(props) {
