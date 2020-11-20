@@ -1,8 +1,12 @@
 import "./style.css"
-import React from 'react'
+import React, { useContext } from 'react'
 import NavItem from "./NavItem"
+import { Context } from '../stores'
 
 function NavTest() {
+  const context = useContext(Context)
+  const cbLogOut = () => window.location.replace('/')
+  
   return (
     <div>
       <header className="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2">
@@ -48,8 +52,8 @@ function NavTest() {
               <NavItem>
                 Documentation
               </NavItem>
-              <NavItem>
-                Support
+              <NavItem onClick={() => context.auth.logout(cbLogOut)}>
+                Logout
               </NavItem>
             </ul>
           </nav>
