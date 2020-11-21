@@ -5,11 +5,11 @@ import { Context } from '../stores'
 
 function ProtectedRoute(props) {
   const context = useContext(Context)
-  // return context.auth.isAuthenticated() ? (
-  return <Route path={props.path} component={props.component} />
-  // ) : (
-  //   <Redirect to={NOT_FOUND_PAGE} />
-  // )
+  return context.auth.isAuthenticated() ? (
+    <Route path={props.path} component={props.component} />
+  ) : (
+    <Redirect to={NOT_FOUND_PAGE} />
+  )
 }
 
 export default ProtectedRoute
